@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 // import { SignupPage } from "./sign/SignupModal";
 import { Link } from "react-router-dom";
+import CrowdPredictor from "./CrowdPredictor";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,6 +40,13 @@ export function Header() {
             >
               Booking
             </Link>
+            <Link
+              to="/crowd-predictor"
+              className="text-[#111827] hover:text-[#F59E0B] transition-colors"
+            >
+              Crowd Predictor
+            </Link>
+
             <a
               href="#gallery"
               className="text-[#111827] hover:text-[#F59E0B] transition-colors"

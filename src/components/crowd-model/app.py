@@ -1,45 +1,33 @@
 from flask import Flask, request, jsonify
-import joblib
-import pandas as pd
 from flask_cors import CORS
+import pandas as pd
+import joblib
 
-# Initialize Flask app
 app = Flask(__name__)
-CORS(app)  # allows your Next.js frontend to call this API
+CORS(app)  # ✅ Allow requests from your frontend
 
-# Load your saved model, scaler, and feature list
+# Load model and scaler
 model = joblib.load("crowd_level_model.pkl")
 scaler = joblib.load("scaler.pkl")
-selected_features = joblib.load("selected_features.pkl")
+
+# ✅ Define feature order used during training
+FEATURE_ORDER = ["Special Day Type", "Time Slot", "Month", "Weekday", "Day", "Group Size"]
 
 @app.route("/")
 def home():
-    return jsonify({"message": "Crowd Level Predictor API is running 🚀"})
+    return "✅ Crowd Predictor API is running. Use POST /predict"
 
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
-        # Get JSON data from frontend
         data = request.get_json()
         df = pd.DataFrame([data])
-
-        # Select the same features used during training
-        df = df[selected_features]
-
-        # Scale input
+        df = df.reindex(columns=FEATURE_ORDER, fill_value=0)
         X_scaled = scaler.transform(df)
-
-        # Predict
         prediction = model.predict(X_scaled)[0]
-
         return jsonify({"prediction": float(prediction)})
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
 if __name__ == "__main__":
-    from sys import argv
-    port = 5000
-    if len(argv) > 1 and argv[1] == "--port":
-        port = int(argv[2]) if len(argv) > 2 else 5001
-    app.run(host="0.0.0.0", port=port, debug=True)
-
+    app.run(port=5001, debug=True)

@@ -14,6 +14,7 @@ import IncidentManagement from './components/IncidentManagement';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignupPage from './components/sign/SignupModal';
 import LoginPage from './components/sign/login';
+import CrowdPredictor from "./components/CrowdPredictor";
 export default function App() {
   return (
     <Router>
@@ -38,6 +39,7 @@ export default function App() {
             <Route path="/admin/cameras" element={<CameraMonitoring />} />
             <Route path="/sign/SignupModal" element={<SignupPage />} />
             <Route path="/sign/login" element={<LoginPage />} />
+            <Route path="/crowd-predictor" element={<CrowdPredictor />} />
           </Routes>
         </main>
         <Footer />
