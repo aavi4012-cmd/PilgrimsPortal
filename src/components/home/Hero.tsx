@@ -74,14 +74,14 @@ export function Hero() {
             >
               Learn More
             </Button>
-            <Button
+            {/* <Button
               size="lg"
               variant="outline"
               className="border-2 border-white/50 text-black hover:bg-white/10 hover:text-white backdrop-blur-sm px-8 py-4 text-lg"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               🏠 Home
-            </Button>
+            </Button> */}
           </div>
 
           {/* Animated Icons */}
