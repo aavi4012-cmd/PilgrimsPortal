@@ -46,13 +46,12 @@ export function Header() {
             >
               Crowd Predictor
             </Link>
-
-            <a
-              href="#gallery"
+            <Link
+              to="/gallery"
               className="text-[#111827] hover:text-[#F59E0B] transition-colors"
             >
               Gallery
-            </a>
+            </Link>
 
             {/* ---------- ADMIN DROPDOWN ---------- */}
             <div className="relative">
@@ -105,16 +104,16 @@ export function Header() {
               </AnimatePresence>
             </div>
 
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="text-[#111827] hover:text-[#F59E0B] transition-colors"
             >
               Contact Us
-            </a>
+            </Link>
           </nav>
 
           {/* ---------- DESKTOP BUTTONS ---------- */}
-          <div className="hidden md:flex space-x-4">
+          <div className="hidden md:flex  gap-0.5 space-x-4">
             <Link
               to="/sign/SignupModal"
             >
@@ -127,7 +126,7 @@ export function Header() {
             </Button>
             <Button className="bg-gradient-to-r from-[#F59E0B] to-[#0EA5A4] hover:from-[#D97706] hover:to-[#0D9488] shadow-md">
               Get Started
-            </Button>
+            </Button> 
             </Link>  
           </div>
 

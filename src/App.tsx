@@ -15,6 +15,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignupPage from './components/sign/SignupModal';
 import LoginPage from './components/sign/login';
 import CrowdPredictor from "./components/CrowdPredictor";
+import Ddesign from './components/Ddesign';
+import Gallery from './components/gallery/Gallery';
+import Contact from './components/contact/Contact';
 export default function App() {
   return (
     <Router>
@@ -40,6 +43,9 @@ export default function App() {
             <Route path="/sign/SignupModal" element={<SignupPage />} />
             <Route path="/sign/login" element={<LoginPage />} />
             <Route path="/crowd-predictor" element={<CrowdPredictor />} />
+            <Route path='/design' element={<Ddesign />} />
+            <Route path='/gallery' element={<Gallery />} />
+            <Route path='/contact' element={<Contact />} />
           </Routes>
         </main>
         <Footer />
